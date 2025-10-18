@@ -4,6 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Post Title</title>
+  
+  <!-- MathJax for LaTeX rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+  
   <style>
     :root {
       --bg-color: #ffffff;
@@ -70,6 +85,15 @@
   </header>
       <p> Post text...
       </p>
+          <p>
+      Maths can be rendered using LaTeX as
+    </p>
+    <p>
+      \[
+      p(x) = \int \frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(x-\mu^2)}{2\sigma^2}\right)
+      \]
+      and then explained...
+    </p>
       <footer>
         &copy; 2025 Sion Lynch.
       </footer>
