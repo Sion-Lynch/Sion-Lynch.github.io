@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post Title</title>
+  
+  <!-- MathJax for LaTeX rendering -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+  
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --muted-color: #666666;
+      --border-color: #dddddd;
+      --hover-bg: #f5f5f5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    p {
+      text-align: justify;
+      margin-bottom: 1em;
+    }
+    
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 2rem;
+    }
+
+    .content {
+      max-width: 800px; /* 👈 limits text width */
+      margin: 40px auto; /* centers it horizontally */
+      padding: 20px;
+      text-align: justify; /* optional */
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    header p {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--muted-color);
+      margin-top: 0.3rem;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted-color);
+      border-top: 1px solid var(--border-color);
+    }
+    
+  </style>
+ 
+</head>
+<body>
+    <div class="content">
+  <header>
+    <p>Sion Lynch - October 2025</p>
+  </header>
+  <header>
+      <h1>A Visual Representation for the Permutations of an $n$ Element Set</h1>
+  </header>
+      <p> A well known result in probability and combinatorial analysis is that
+the number of unique permutations of an $n$ element
+set is $n!$. One might wonder how exactly the factorial finds its
+way into this problem. A short visual representation is provided here.</p>
+    
+<p> In a proof-by-induction fashion, consider the following simple 3 element
+set $S$, consisting of the integers 1, 2 and 3
+\[
+S=\{1,2,3\}
+\]
+All possible permutations of $S$ are given by
+\[
+S=\{1,2,3\}
+\]
+\[
+S=\{1,3,2\}
+\]
+\[
+S=\{2,1,3\}
+\]
+\[
+S=\{2,3,1\}
+\]
+\[
+S=\{3,1,2\}
+\]
+\[
+S=\{3,2,1\}
+\]
+which reveals something almost immediately. All permutations have
+been listed in such a way that the first element is fixed, and the
+remaining two elements are being cycled through the 2 different permutations
+of a 2 element set. This shows we can form all permutations of a set
+by fixing an element, and cycling through all permutations of the
+set formed by the remaining elements.</p>
+    
+<p> Considering the example above, there are 2 permutations of a 2 element
+set, and 3 possible values for the single fixed element in the 3 element
+set. This means there are $3\times2$ total permutations, since each
+time an element is fixed (where there are three total values to fix)
+there are two permutations of the remaining elements of the set.</p>
+    
+<p>More generally, denoting the number of permutations of a set containing
+$n$ elements as $P_{n}$, it can be stated that
+\[
+P_{n}=nP_{n-1}
+\]
+since the above example has identified such a pattern. Using recurrence
+to derive an even more general form gives
+\begin{align*}
+P_{n} & =n(n-1)P_{n-2}\\
+ & =n(n-1)(n-2)P_{n-3}\\
+ & =n(n-1)(n-2)(n-3)P_{n-4}
+\end{align*}
+where the identity $P_{n}=nP_{n-1}$ is simply being applied each
+time. Since $P_{1}=1$ i.e. there is a single permutation for a single
+element set, for any value of $n$ the above can be simplified to
+\begin{align*}
+P_{n} & =n(n-1)(n-2)...(3)(2)P_{1}\\
+ & =n(n-1)(n-2)...(3)(2)(1)\\
+ & =n!
+\end{align*}
+which proves the well known result for the number of permutations
+of an $n$ element set.</p>
+      <footer>
+        &copy; 2025 Sion Lynch.
+      </footer>
+    </div>
+</body>
+</html>
